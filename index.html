@@ -21,7 +21,9 @@
 
       <!-- Here we have our button for generating random numbers (#random-button) -->
       <button id="random-button" class="btn btn-primary btn-lg"><h1><span class="glyphicon glyphicon-question-sign"></span></h1></button>
-      <h2 id="numberPlace"></h2>
+      <div id="lottoContainer">
+        <h2 id="numberPlace"></h2>
+      </div>
       
     </div>
 
@@ -34,12 +36,21 @@
 
     $(document).ready(function() {
 
+      function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
 
       // CREATE THE MISSING CODE HERE. Your code should add content to the random-number div.
       // ...
       $("#random-button").on("click", function(){
-        var displayNum = Math.floor(Math.random() * 1001);
-        $("#numberPlace").text(displayNum);
+        var $currentNumber = $("#lottoContainer").append("<h2 id='numberPlace'></h2>");
+        for (var i=0; i<10; i++){
+          var displayNum = Math.floor(Math.random() * 10);
+          $currentNumber.append(displayNum);
+        }
+        
       });
 
       // ...
