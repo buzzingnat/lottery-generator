@@ -45,11 +45,12 @@
       // CREATE THE MISSING CODE HERE. Your code should add content to the random-number div.
       // ...
       $("#random-button").on("click", function(){
-        var $currentNumber = $("#lottoContainer").append("<h2 id='numberPlace'></h2>");
+        var finishedNumber = "";
         for (var i=0; i<10; i++){
           var displayNum = Math.floor(Math.random() * 10);
-          $currentNumber.append(displayNum);
+          finishedNumber = finishedNumber + "" + displayNum;
         }
+        $("#lottoContainer").append("<h2>" + finishedNumber + "</h2>");
         
       });
 
